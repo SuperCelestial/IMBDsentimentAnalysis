@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Deployment Tutorial 1</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body class= "blur" style='background-image: url("/static/img/background.jpg")'>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <ul class="nav navbar-nav navbar-right">
+
+      <li><a href="#" ><span class="glyphicon glyphicon-user"></span>Hi {{session.username}}!!</a></li>
+    </ul>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+
+      <li><a href="{{ url_for('logout') }}" ><span class="glyphicon glyphicon-log-out"></span> Log-out</a></li>
+    </ul>
+  </div>
+</nav>
+
+   
+
+<div class="login">
+       <br>
+    <br>
+    <br>
+  <h3 class="bottom"><div class="container">
+    
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3 class="animate-charcter"> Welcome <br> to the Predict page...</h3>
+    </div>
+  </div>
+<!--</div>!-->
+<br><br>
+<br>
+    </form>
+      <form action="{{ url_for('predict')}}" method="post">
+
+        <textarea rows="5" cols="60" name="text" placeholder="Enter your review..."></textarea>
+        <br>
+        <br>
+        <button type="submit" class="btn" style="font-size:20px;font-weight:bold">
+          Predict Sentiment
+        </button>
+      </form>
+
+      <br />
+      <br />
+      <div class="word">{{ prediction_text }}</div>
+
+     
+    </div>
+  
+  </body>
+</html>
